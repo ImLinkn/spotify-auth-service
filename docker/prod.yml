@@ -1,0 +1,34 @@
+version: '3.9'
+services:
+  spotify-auth-service:
+    image: 'spotify-auth-service:prod'
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: none
+    environment:
+      - TIER=PROD
+      - TZ=America/New_York
+    networks:
+      - bridge
+    ports:
+      - '8081:8000'
+    secrets:
+      - source: spotify-client-id
+        target: CLIENT_ID
+        uid: '235'
+        gid: '235'
+        mode: 0600
+      - source: spotify-client-secret
+        target: CLIENT_SECRET
+        uid: '235'
+        gid: '235'
+        mode: 0600
+networks:
+  bridge:
+secrets:
+  spotify-client-id:
+    external: true
+  spotify-client-secret:
+    external: true
