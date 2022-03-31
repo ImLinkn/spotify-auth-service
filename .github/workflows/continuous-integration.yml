@@ -1,0 +1,10 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  continuous_integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo Hello, world!
