@@ -1,0 +1,39 @@
+version: '3.9'
+services:
+  spotify-auth-service:
+    image: 'spotify-auth-service:prod'
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: none
+    environment:
+      - REDIRECT_URI=http://localhost:8081/callback
+      - SCOPES=user-modify-playback-state user-read-currently-playing
+      - SERVER_PORT=8000
+      - SPOTIFY_AUTHORIZATION_ENDPOINT=https://accounts.spotify.com/authorize
+      - SPOTIFY_TOKEN_ENDPOINT=https://accounts.spotify.com/api/token
+      - TIER=PROD
+      - TZ=America/New_York
+    networks:
+      - bridge
+    ports:
+      - '8081:8000'
+    secrets:
+      - source: spotify-client-id
+        target: CLIENT_ID
+        uid: '235'
+        gid: '235'
+        mode: 0600
+      - source: spotify-client-secret
+        target: CLIENT_SECRET
+        uid: '235'
+        gid: '235'
+        mode: 0600
+networks:
+  bridge:
+secrets:
+  spotify-client-id:
+    external: true
+  spotify-client-secret:
+    external: true

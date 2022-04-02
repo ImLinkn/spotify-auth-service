@@ -1,0 +1,9 @@
+.dockerignore
+.env
+*.md
+Dockerfile
+**/.git*
+/.idea
+/coverage
+/docker/*.yml
+/node_modules
