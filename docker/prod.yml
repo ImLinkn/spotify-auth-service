@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   spotify-auth-service:
-    image: 'spotify-auth-service:prod'
+    image: 'spotify-auth-service'
     deploy:
       mode: replicated
       replicas: 1

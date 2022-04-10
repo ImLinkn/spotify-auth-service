@@ -62,10 +62,8 @@ app.get('/login', (req, res) => {
 app.get('/token', (req, res) => {
   const now = moment();
   if (!accessToken) {
-    console.debug(`Access token value is ${accessToken}. Requesting new access token...`);
     res.redirect('/login');
   } else if (moment(now).isAfter(accessToken.expires_in_timestamp)) {
-    console.debug(`Access token is expired. Refreshing access token...`);
     res.redirect('/token/refresh');
   } else {
     res.send(accessToken);
