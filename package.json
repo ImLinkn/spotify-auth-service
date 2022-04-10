@@ -1,7 +1,7 @@
 {
   "name": "spotify-auth-service",
   "version": "1.0.0",
-  "description": "Spotify authentication microservice based around JavaScript and Express.",
+  "description": "Spotify authorization microservice based around JavaScript and Express.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --inspect=0.0.0.0:9229 src/app.js",
