@@ -1,6 +1,6 @@
 {
   "name": "spotify-auth-service",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Spotify authorization microservice based around JavaScript and Express.",
   "main": "index.js",
   "scripts": {
