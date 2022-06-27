@@ -9,7 +9,7 @@ services:
         condition: none
     environment:
       - REDIRECT_URI=http://localhost:8081/callback
-      - SCOPES=user-modify-playback-state user-read-currently-playing
+      - SCOPES=user-modify-playback-state user-read-currently-playing user-read-playback-state
       - SERVER_PORT=8000
       - SPOTIFY_AUTHORIZATION_ENDPOINT=https://accounts.spotify.com/authorize
       - SPOTIFY_TOKEN_ENDPOINT=https://accounts.spotify.com/api/token
