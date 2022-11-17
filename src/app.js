@@ -60,6 +60,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/token', (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
   const now = moment();
   if (!accessToken) {
     res.redirect('/login');
